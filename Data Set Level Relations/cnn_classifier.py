@@ -14,7 +14,7 @@ from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.utils import to_categorical
 import os
 import matplotlib.pyplot as plt
-import scipy.misc
+import scipy.misc as sc
 import cv2
 from PIL import Image
 from tqdm import tqdm
@@ -30,21 +30,18 @@ n_inputs = height * width * channels
 
 #Loading of dataset from the given path
 for i in range(classes):
-	path = "/home/razorback/BTP/metamorphic_testing/traffic/gtsrb-german-traffic-sign/train/"
-	images = os.listdir(path+str(i))
+	path = r"C:\Users\Vishal\Documents\BTP\MR codes\traffic\Train"
+	images = os.listdir(path+'\\'+str(i))
 
 	for image in images:
-		try:
-			#print(path+image)
-			img = cv2.imread(path+str(i)+'/'+image)
-			#print(img)
-			if img is not None:
-				img_file = scipy.misc.imresize(arr=img, size=(height, width, channels))
-				img_arr = np.asarray(img_file)
-				data.append(img_arr)
-				labels.append(i)
-		except AttributeError:
-			print("vish")
+		
+                img = cv2.imread(path+'\\'+str(i)+'\\'+image)
+                #print(img)
+                if img is not None:
+                        im = Image.fromarray(img)
+                        img_arr = np.array(im.resize((height, width), Image.BICUBIC))
+                        data.append(img_arr)
+                        labels.append(i)
 			
 
 Cells=np.asarray(data)
