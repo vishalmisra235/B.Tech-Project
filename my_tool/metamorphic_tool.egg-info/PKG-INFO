@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: metamorphic-tool
+Version: 1.0.0
+Summary: This is a prototype tool for metamorphic testing of image classifiers
+Home-page: https://github.com/vishalmisra235/B.Tech-Project
+Author: Vishal Misra
+Author-email: vishalmisra235@gmail.com
+License: UNKNOWN
+Description: # B.Tech-Project
+        Metamorphic Testing Automation Factory
+        
+        # Metamorphic Testing
+        Metamorphic Testing is one of those testing techniques through which we can reform ML testing and mitigate the oracle problem. The idea is simple: even if we do not know the correct output of a single input, we might still know the relations between the outputs of multiple inputs, especially if the inputs are themselves related.
+        
+        This tool will help to automatically test your image classifier on some set of metamorphic relations.
+        
+        This tool is under testing phase for now. Will release our first version soon.
+        
+        # Install
+        Run this command in your ubuntu terminal
+        pip install -i https://test.pypi.org/simple/ metamorphic-tool
+        
+        # Requirements
+        Need to install these modules before running this tool:
+        1. Tensorflow
+        2. Scikit-Learn
+        3. Pillow
+        4. opencv-python
+        5. adversarial-robustness-toolbox
+        6. lime
+        7. Keras
+        8. shutil
+        9. matplotlib
+        10. numpy and scipy
+        
+        # How to run?
+        After installing this tool, run the following commands in your python terminal:
+        from metamorphic_relations import <relation_name>
+        
+        These relation_name includes the following:
+        1. mr2, mr3, mr4, mr6, mr7, mr8, mr10, mr11
+        2. outliers_mr, interpretability_mr, robustness_mr, bias_mr, overfitting_mr
+        
+        If you run command of 1st category run:
+        mr<number>.MR<number>(classiifer_path, dataset_path, height, width).output()
+        
+        This will run that speciifc MR for you.
+        
+        If you run command from 2nd category then:
+        <name>_mr.<name>_MR(classiifer_path, dataset_path, height, width).output()
+        
+        Dataset should consists of folders containing different category images and should be labeled with 0,1,2,3....
+        
+        Metamorphic relations of 1st category were taken from the following paper:-
+        # validating a deep learning framework by metamorphic testing.
+        
+        Link:- 
+        https://ieeexplore.ieee.org/abstract/document/7961649/
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
